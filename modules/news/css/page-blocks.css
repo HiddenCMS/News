@@ -1,0 +1,34 @@
+.news-page-block-cards {
+	display: grid;
+	gap: 1.25rem;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.news-page-block-list {
+	display: grid;
+	gap: 1rem;
+}
+
+.news-page-block-item {
+	margin: 0;
+	min-width: 0;
+}
+
+.news-page-block-empty {
+	grid-column: 1 / -1;
+	margin: 0;
+	padding: 2rem;
+	text-align: center;
+}
+
+@media (max-width: 991px) {
+	.news-page-block-cards {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 575px) {
+	.news-page-block-cards {
+		grid-template-columns: 1fr;
+	}
+}

@@ -1,0 +1,41 @@
+{
+    "name": "hiddencms/news",
+    "description": "Module d'actualites et widget associe pour HiddenCMS",
+    "type": "hiddencms-addon",
+    "license": "GPL-3.0-only",
+    "require": {
+        "php": ">=8.1",
+        "hiddencms/core": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "HB\\Modules\\News\\": "modules/news/",
+            "HB\\Widgets\\News\\": "widgets/news/",
+            "HiddenCMS\\News\\": "src/"
+        }
+    },
+    "extra": {
+        "hiddencms": {
+            "addons": [
+                {
+                    "type": "module",
+                    "name": "news",
+                    "class": "HB\\Modules\\News\\News",
+                    "path": "modules/news"
+                },
+                {
+                    "type": "widget",
+                    "name": "news",
+                    "class": "HB\\Widgets\\News\\News",
+                    "path": "widgets/news"
+                }
+            ],
+            "migrations": [
+                "HiddenCMS\\News\\Migrations\\CreateNewsTables"
+            ],
+            "seeders": [
+                "HiddenCMS\\News\\Seeders\\InstallDefaults"
+            ]
+        }
+    }
+}
