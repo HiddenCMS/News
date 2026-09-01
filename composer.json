@@ -5,7 +5,7 @@
     "license": "GPL-3.0-only",
     "require": {
         "php": ">=8.1",
-        "hiddencms/core": "*"
+        "hiddencms/core": "^0.3"
     },
     "autoload": {
         "psr-4": {
