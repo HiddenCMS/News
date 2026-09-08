@@ -9,10 +9,12 @@
     },
     "autoload": {
         "psr-4": {
-            "HB\\Modules\\News\\": "modules/news/",
-            "HB\\Widgets\\News\\": "widgets/news/",
             "HiddenCMS\\News\\": "src/"
-        }
+        },
+        "classmap": [
+            "modules/news/",
+            "widgets/news/"
+        ]
     },
     "extra": {
         "hiddencms": {
