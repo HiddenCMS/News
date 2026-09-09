@@ -108,6 +108,42 @@ class News extends Module
 		];
 	}
 
+	public function personal_data_export($user)
+	{
+		$items = $this->db
+			->select('n.news_id', 'n.category_id', 'n.image_id', 'n.date', 'n.published', 'n.views', 'n.vote', 'c.name as category')
+			->from('news n')
+			->join('news_categories c', 'c.category_id = n.category_id', 'INNER')
+			->where('n.user_id', (int)$user->id)
+			->order_by('n.date')
+			->get(FALSE);
+
+		foreach ($items as &$item)
+		{
+			$item['translations'] = $this->db
+				->select('lang', 'title', 'slug', 'introduction', 'content', 'tags')
+				->from('news_lang')
+				->where('news_id', (int)$item['news_id'])
+				->order_by('lang')
+				->get(FALSE);
+		}
+		unset($item);
+
+		return ['authored_news' => $items];
+	}
+
+	public function personal_data_erase($user)
+	{
+		$count = $this->db->from('news')->where('user_id', (int)$user->id)->count();
+
+		// Editorial contributions remain attached to the account that the core
+		// anonymizes immediately after this callback.
+		return [
+			'authored_news_preserved' => (int)$count,
+			'attribution'              => 'anonymized_core_account'
+		];
+	}
+
 	public function page_blocks()
 	{
 		$blocks = [

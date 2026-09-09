@@ -52,7 +52,7 @@ class Admin extends Controller_Module
 							[
 								'title'   => $this->lang('Auteur'),
 								'content' => function($data){
-									return $data['user_id'] ? HB()->user->link($data['user_id'], $data['username']) : $this->lang('Visiteur');
+									return $data['user_id'] ? HB()->user->link($data['user_id'], $data['username']) : ($data['username'] ?: $this->lang('Visiteur'));
 								},
 								'sort'    => function($data){
 									return $data['username'];
