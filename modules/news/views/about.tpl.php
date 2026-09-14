@@ -2,7 +2,7 @@
 	<?php $news_module = $this->module('news'); ?>
 	<div class="card">
 		<div class="card-body">
-			<h5 class="card-title"><?php echo $this->lang('À propos de l\'auteur') ?></h5>
+			<h5 class="card-title"><?php echo $this->lang('About the author') ?></h5>
 			<div class="media">
 				<?php echo $this->module('user')->model2('user', $user_id)->avatar() ?>
 				<div class="media-body">
@@ -16,7 +16,7 @@
 	</div>
 	<div class="card">
 		<div class="card-body">
-			<h5 class="card-title"><?php echo $this->lang('Autres actualités de l\'auteur') ?></h5>
+			<h5 class="card-title"><?php echo $this->lang('Other news from this author') ?></h5>
 			<?php if (!empty($news)): ?>
 			<ul class="list-unstyled">
 				<?php foreach ($news as $news): ?>
@@ -24,7 +24,7 @@
 				<?php endforeach ?>
 			</ul>
 			<?php else: ?>
-			<?php echo $this->lang('L\'auteur n\'a pas publié d\'autre actualité') ?>
+			<?php echo $this->lang('The author has not published other news') ?>
 			<?php endif ?>
 		</div>
 	</div>

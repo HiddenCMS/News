@@ -42,8 +42,8 @@ class Index extends Controller_Module
 		if ($panels->empty())
 		{
 			$panels->append($this	->panel()
-									->heading($this->lang('Actualités'), 'far fa-file-alt')
-									->body('<div class="text-center">'.$this->lang('Aucune actualité n\'a été publiée pour le moment').'</div>')
+									->heading($this->lang('News'), 'far fa-file-alt')
+									->body('<div class="text-center">'.$this->lang('There are no news published at the moment').'</div>')
 									->color('info'));
 		}
 
@@ -60,15 +60,15 @@ class Index extends Controller_Module
 
 	public function _category($title, $news)
 	{
-		$this->subtitle($this->lang('Catégorie %s', $title));
-		return $this->_filter($news, $this->lang('Catégorie').' <small>'.$title.'</small>');
+		$this->subtitle($this->lang('Category %s', $title));
+		return $this->_filter($news, $this->lang('Category').' <small>'.$title.'</small>');
 	}
 
 	private function _filter($news, $filter)
 	{
 		$news = $this->index($news);
 
-		$news->prepend($this->panel()->body('<h3 class="m-0">'.$filter.$this->button()->tooltip($this->lang('Voir toutes les actualités'))->icon('fas fa-times')->url($this->module->index_path())->color('danger float-right')->compact()->outline().'</h3>'));
+		$news->prepend($this->panel()->body('<h3 class="m-0">'.$filter.$this->button()->tooltip($this->lang('See all news'))->icon('fas fa-times')->url($this->module->index_path())->color('danger float-right')->compact()->outline().'</h3>'));
 
 		return $news;
 	}

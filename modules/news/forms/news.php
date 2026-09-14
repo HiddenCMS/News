@@ -6,13 +6,13 @@
 
 $rules = [
 	'title' => [
-		'label'         => $this->lang('Titre'),
+		'label'         => $this->lang('Title'),
 		'value'         => $this->form()->value('title'),
 		'type'          => 'text',
 		'rules'			=> 'required'
 	],
 	'category' => [
-		'label'         => $this->lang('Catégorie'),
+		'label'         => $this->lang('Category'),
 		'value'         => $this->form()->value('category_id'),
 		'values'        => $this->form()->value('categories'),
 		'type'          => 'select',
@@ -23,11 +23,11 @@ $rules = [
 		'value'       => $this->form()->value('image_id'),
 		'type'        => 'file',
 		'upload'      => 'news',
-		'info'        => $this->lang(' d\'image (max. %d Mo)', file_upload_max_size() / 1024 / 1024),
+		'info'        => $this->lang(' image (max. %d MB)', file_upload_max_size() / 1024 / 1024),
 		'check'       => function($filename, $ext){
 			if (!in_array($ext, ['gif', 'jpeg', 'jpg', 'png']))
 			{
-				return $this->lang('Veuiller choisir un fichier d\'image');
+				return $this->lang('Please choose an image file');
 			}
 		}
 	],
@@ -38,18 +38,18 @@ $rules = [
 		'rules'			=> 'required'
 	],
 	'content' => [
-		'label'			=> $this->lang('Contenu'),
+		'label'			=> $this->lang('Content'),
 		'value'			=> $this->form()->value('content'),
 		'type'			=> 'editor'
 	],
 	'tags' => [
-		'label'			=> $this->lang('Mots clés'),
+		'label'			=> $this->lang('Keyword(s)'),
 		'value'			=> $this->form()->value('tags'),
 		'type'			=> 'text'
 	],
 	'published' => [
 		'type'			=> 'checkbox',
 		'checked'		=> ['on' => $this->form()->value('published')],
-		'values'        => ['on' => $this->lang('Publiée')]
+		'values'        => ['on' => $this->lang('Publish')]
 	]
 ];

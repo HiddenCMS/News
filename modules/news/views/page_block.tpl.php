@@ -6,6 +6,6 @@
 		</article>
 	<?php endforeach ?>
 	<?php if (!$news): ?>
-		<p class="news-page-block-empty"><?php echo $this->lang('Aucune actualité n\'a été publiée pour le moment') ?></p>
+		<p class="news-page-block-empty"><?php echo $this->lang('There are no news published at the moment') ?></p>
 	<?php endif ?>
 </div>

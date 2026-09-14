@@ -29,8 +29,8 @@ class InstallDefaults implements Seeder
 
 			$db->insert_checked('news_categories_lang', [
 				'category_id' => $category_id,
-				'lang'        => 'fr',
-				'title'       => 'Général'
+				'lang'        => 'en',
+				'title'       => 'General'
 			]);
 		}
 
@@ -42,7 +42,7 @@ class InstallDefaults implements Seeder
 			$db->insert_checked('menus_items', [
 				'menu_id'   => $menu_id,
 				'parent_id' => NULL,
-				'title'     => 'Actualités',
+				'title'     => 'News',
 				'url'       => 'news',
 				'target'    => '_parent',
 				'position'  => $position + 1,

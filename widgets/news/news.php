@@ -13,19 +13,19 @@ class News extends Widget
 	protected function __info()
 	{
 		return [
-			'title'       => $this->lang('Actualités'),
+			'title'       => $this->lang('News'),
 			'icon'        => 'fas fa-newspaper',
 			'description' => '',
 			'link'        => 'https://neofr.ag',
 			'author'      => 'Michaël BILCOT & Jérémy VALENTIN <contact@HiddenCMS.com>',
 			'license'     => 'LGPLv3 <https://neofr.ag/license>',
-			'version'     => '1.0',
+			'version'     => '0.2.0',
 			'depends'     => [
 				'HiddenCMS' => 'Alpha 0.2'
 			],
 			'types'       => [
-				'index'      => $this->lang('Actualités récentes'),
-				'categories' => $this->lang('Catégories'),
+				'index'      => $this->lang('Latest news'),
+				'categories' => $this->lang('Categories'),
 				'tags'       => $this->lang('Tags')
 			]
 		];

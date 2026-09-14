@@ -13,7 +13,7 @@ class News extends Module
 	protected function __info()
 	{
 		return [
-			'title'       => $this->lang('Actualités'),
+			'title'       => $this->lang('News'),
 			'description' => '',
 			'icon'        => 'far fa-file-alt',
 			'link'        => 'https://neofr.ag',
@@ -22,7 +22,7 @@ class News extends Module
 			'admin'       => TRUE,
 			'front'       => TRUE,
 			'page_blocks' => TRUE,
-			'version'     => '1.0',
+			'version'     => '0.2.0',
 			'reserved_route' => 'news',
 			'depends'     => [
 				'HiddenCMS' => 'Alpha 0.2'
@@ -44,12 +44,12 @@ class News extends Module
 			'settings'    => function(){
 				return $this->form2()
 							->rule($this->form_number('news_per_page')
-										->title('Actualités par page')
+										->title('News per page')
 										->value($this->config->news_per_page)
 							)
 							->success(function($data){
 								$this->config('news_per_page', $data['news_per_page']);
-								notify('Configuration modifiée');
+								notify((string)$this->lang('Settings updated'));
 								refresh();
 							});
 			}
@@ -62,42 +62,42 @@ class News extends Module
 			'default' => [
 				'access'  => [
 					[
-						'title'  => 'Actualités',
+						'title'  => (string)$this->lang('News'),
 						'icon'   => 'far fa-file-alt',
 						'access' => [
 							'add_news' => [
-								'title' => 'Ajouter',
+								'title' => (string)$this->lang('Add'),
 								'icon'  => 'fas fa-plus',
 								'admin' => TRUE
 							],
 							'modify_news' => [
-								'title' => 'Modifier',
+								'title' => (string)$this->lang('Edit'),
 								'icon'  => 'fas fa-edit',
 								'admin' => TRUE
 							],
 							'delete_news' => [
-								'title' => 'Supprimer',
+								'title' => (string)$this->lang('Delete'),
 								'icon'  => 'far fa-trash-alt',
 								'admin' => TRUE
 							]
 						]
 					],
 					[
-						'title'  => 'Catégories',
+						'title'  => (string)$this->lang('Categories'),
 						'icon'   => 'fas fa-align-left',
 						'access' => [
 							'add_news_category' => [
-								'title' => 'Ajouter une catégorie',
+								'title' => (string)$this->lang('Add category'),
 								'icon'  => 'fas fa-plus',
 								'admin' => TRUE
 							],
 							'modify_news_category' => [
-								'title' => 'Modifier une catégorie',
+								'title' => (string)$this->lang('Edit a category'),
 								'icon'  => 'fas fa-edit',
 								'admin' => TRUE
 							],
 							'delete_news_category' => [
-								'title' => 'Supprimer une catégorie',
+								'title' => (string)$this->lang('Delete a category'),
 								'icon'  => 'far fa-trash-alt',
 								'admin' => TRUE
 							]
@@ -148,7 +148,7 @@ class News extends Module
 	{
 		$blocks = [
 			'index' => [
-				'title'  => (string)$this->lang('Toutes les actualités'),
+				'title'  => (string)$this->lang('All news'),
 				'icon'   => 'fas fa-stream'
 			]
 		];
@@ -165,17 +165,17 @@ class News extends Module
 		{
 			$block['displays'] = [
 				'cards' => [
-					'title' => (string)$this->lang('Cartes sur 3 colonnes'),
+					'title' => (string)$this->lang('Three-column cards'),
 					'icon'  => 'fas fa-th-large'
 				],
 				'list' => [
-					'title' => (string)$this->lang('Liste verticale'),
+					'title' => (string)$this->lang('Vertical list'),
 					'icon'  => 'fas fa-list'
 				]
 			];
 			$block['fields'] = [
 				'limit' => [
-					'label'   => (string)$this->lang('Nombre d\'actualités visibles'),
+					'label'   => (string)$this->lang('Number of visible news items'),
 					'type'    => 'number',
 					'default' => 6,
 					'min'     => 1,
