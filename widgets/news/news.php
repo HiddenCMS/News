@@ -19,7 +19,7 @@ class News extends Widget
 			'link'        => 'https://neofr.ag',
 			'author'      => 'Michaël BILCOT & Jérémy VALENTIN <contact@HiddenCMS.com>',
 			'license'     => 'LGPLv3 <https://neofr.ag/license>',
-			'version'     => '0.2.0',
+			'version'     => '0.2.1',
 			'depends'     => [
 				'HiddenCMS' => 'Alpha 0.2'
 			],

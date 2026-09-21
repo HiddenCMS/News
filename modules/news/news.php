@@ -22,7 +22,7 @@ class News extends Module
 			'admin'       => TRUE,
 			'front'       => TRUE,
 			'page_blocks' => TRUE,
-			'version'     => '0.2.0',
+			'version'     => '0.2.1',
 			'reserved_route' => 'news',
 			'depends'     => [
 				'HiddenCMS' => 'Alpha 0.2'
